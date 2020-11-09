@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>THYMELEAF COURSE</h1>
+<p>1st car:</p>
+<p th:text="${carId1.getMark() + carId1.getModel()}"></p>
+<p>2nd car:</p>
+<p th:text="${carId2.getMark() + carId2.getModel()}"></p>
+<p>3rd car:</p>
+<p th:text="${carId3.getMark() + carId3.getModel()}"></p>
+
+</body>
+</html>

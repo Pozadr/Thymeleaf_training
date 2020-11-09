@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pl.pozadr</groupId>
-    <artifactId>thymeleaf-hello</artifactId>
+    <artifactId>thymeleaf-training</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>thymeleaf-hello</name>
+    <name>thymeleaf-training</name>
     <description>Thymeleaf first app</description>
 
     <properties>
