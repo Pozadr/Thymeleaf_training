@@ -1,11 +1,15 @@
 package pl.pozadr.thymeleafhello.model;
 
 public class Car {
-    public Long id;
-    public String mark;
-    public String model;
+    private Long id;
+    private String mark;
+    private String model;
 
     public Car() {
+    }
+
+    public Car(Long id) {
+        this.id = id;
     }
 
 

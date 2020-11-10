@@ -1,28 +1,29 @@
 package pl.pozadr.thymeleafhello.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.pozadr.thymeleafhello.model.Car;
+import pl.pozadr.thymeleafhello.repository.CarRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CarService {
-    List<Car> carList;
 
-    public CarService() {
-        carList = new ArrayList<>();
-        carList.add(new Car(1L,"VW","T5"));
-        carList.add(new Car(2L,"Ford","Mustang"));
-        carList.add(new Car(3L,"Ford","Focus"));
-        carList.add(new Car(4L,"Fiat","126p"));
+    private List<Car> carList;
+
+    @Autowired
+    public CarService(CarRepository carRepository) {
+        this.carList = carRepository.getCarList();
     }
+
 
     public Optional<Car> getCarById(Long id) {
         return carList.stream()
                 .filter(car -> car.getId().equals(id))
                 .findFirst();
+
     }
 
     public List<Car> getCarList() {
@@ -36,4 +37,12 @@ public class CarService {
     public boolean addCar(Car car) {
         return carList.add(car);
     }
+
+    public boolean removeCar(Long id) {
+        Optional<Car> carToRemove = carList.stream()
+                .filter(car -> car.getId().equals(id))
+                .findFirst();
+        return carToRemove.map(car -> carList.remove(car)).orElse(false);
+    }
+
 }
