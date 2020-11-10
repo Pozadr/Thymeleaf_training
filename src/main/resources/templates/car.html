@@ -9,11 +9,19 @@
 <h2>THYMELEAF COURSE</h2>
 
 <tr th:each="car: ${cars}">
+    <td th:text="${car.getId()}"></td><span>.</span>
     <td th:text="${car.getMark()}"></td>
     <td th:text="${car.getModel()}"></td><br>
     <p>==========</p>
 
 </tr>
+
+<form th:action="@{/add-car}" th:object="${newCar}" method="post">
+    <p>Id: <input type="number" th:field="*{id}"> </p>
+    <p>Mark:    <input type="text" th:field="*{mark}"> </p>
+    <p>Model: <input type="text" th:field="*{model}"> </p>
+    <p><input type="submit" value="add new car"> </p>
+</form>
 
 </body>
 </html>

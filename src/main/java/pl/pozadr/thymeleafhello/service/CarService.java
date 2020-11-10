@@ -32,4 +32,8 @@ public class CarService {
     public void setCarList(List<Car> carList) {
         this.carList = carList;
     }
+
+    public boolean addCar(Car car) {
+        return carList.add(car);
+    }
 }

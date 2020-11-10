@@ -1,15 +1,20 @@
 package pl.pozadr.thymeleafhello.model;
 
 public class Car {
-    private Long id;
-    private String mark;
-    private String model;
+    public Long id;
+    public String mark;
+    public String model;
+
+    public Car() {
+    }
+
 
     public Car(Long id, String mark, String model) {
         this.id = id;
         this.model = model;
         this.mark = mark;
     }
+
 
     public String getModel() {
         return model;
@@ -35,4 +40,12 @@ public class Car {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", mark='" + mark + '\'' +
+                ", model='" + model + '\'' +
+                '}';
+    }
 }
