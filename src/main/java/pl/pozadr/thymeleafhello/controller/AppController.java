@@ -18,7 +18,6 @@ public class AppController {
     @GetMapping("/car")
     public String getCar(Model model) {
         model.addAttribute("cars", carService.getCarList());
-        carService.getCarList().forEach(System.out::println);
         return "car";
     }
 }
