@@ -6,11 +6,12 @@
 </head>
 <body>
 
-<h1>THYMELEAF COURSE</h1>
+<h2>THYMELEAF COURSE</h2>
 
 <tr th:each="car: ${cars}">
     <td th:text="${car.getMark()}"/>
     <td th:text="${car.getModel()}"/><br>
+    <p>==========</p>
 
 </tr>
 
