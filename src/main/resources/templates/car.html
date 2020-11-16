@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
     <title>Thymeleaf Course</title>
 </head>
+
 <body>
+    <h2>THYMELEAF COURSE</h2>
 
-<h2>THYMELEAF COURSE</h2>
+    <table class="table-show-cars">
+        <tr>
+            <th scope="col"> Id:</th>
+            <th scope="col">Mark:</th>
+            <th scope="col">Model:</th>
+        </tr>
+        <tr th:each="car: ${cars}">
+            <td th:text="${car.getId()}"></td>
+            <td th:text="${car.getMark()}"></td>
+            <td th:text="${car.getModel()}"></td>
+        </tr>
+    </table>
 
-<tr th:each="car: ${cars}">
-    <td th:text="${car.getId()}"></td>
-    <span>.</span>
-    <td th:text="${car.getMark()}"></td>
-    <td th:text="${car.getModel()}"></td>
-    <br>
-    <p>==========</p>
+    <div id="add-car">
+        <h3>Add Car:</h3>
+        <form th:action="@{/add-car}" th:object="${newCar}" th:method="post">
+            <p>Id: <input type="number" th:field="*{id}"></p>
+            <p>Mark: <input type="text" th:field="*{mark}"></p>
+            <p>Model: <input type="text" th:field="*{model}"></p>
+            <p><input type="submit" value="add new car"></p>
+        </form>
 
-</tr>
-<h3>Add Car:</h3>
-<form th:action="@{/add-car}" th:object="${newCar}" th:method="post">
-    <p>Id: <input type="number" th:field="*{id}"></p>
-    <p>Mark: <input type="text" th:field="*{mark}"></p>
-    <p>Model: <input type="text" th:field="*{model}"></p>
-    <p><input type="submit" value="add new car"></p>
-</form>
+    </div>
 
-<h3>Delete Car:</h3>
-<form th:action="@{/delete-car}" th:object="${delCar}" th:method="get">
-    <p>Id: <input type="number" th:field="*{id}"></p>
-    <p><input type="submit" value="delete car"></p>
-</form>
+    <div id="mod-car">
+        <h3>Modify Car:</h3>
+        <form th:action="@{/modify-car}" th:object="${modifyCar}" th:method="get">
+            <p>Id: <input type="number" th:field="*{id}"></p>
+            <p>Mark: <input type="text" th:field="*{mark}"></p>
+            <p>Model: <input type="text" th:field="*{model}"></p>
+            <p><input type="submit" value="modify car"></p>
+        </form>
+    </div>
 
-<h3>Modify Car:</h3>
-<form th:action="@{/modify-car}" th:object="${modifyCar}" th:method="get">
-    <p>Id: <input type="number" th:field="*{id}"></p>
-    <p>Mark: <input type="text" th:field="*{mark}"></p>
-    <p>Model: <input type="text" th:field="*{model}"></p>
-    <p><input type="submit" value="modify car"></p>
-</form>
+    <div id="del-car">
+        <h3>Delete Car:</h3>
+        <form th:action="@{/delete-car}" th:object="${delCar}" th:method="get">
+            <p>Id: <input type="number" th:field="*{id}"></p>
+            <p><input type="submit" value="delete car"></p>
+        </form>
+    </div>
+
+
+
 
 </body>
+
 </html>
